@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { CounterModule } from './counter/counter.module';
 import { environment } from './../environments/environment';
 import { HeaderComponent } from './shared/header/header.component';
@@ -27,7 +28,8 @@ import { appReducer } from './store/app.state';
     }),
     FormsModule,
     ReactiveFormsModule,
-    CounterModule
+    CounterModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
