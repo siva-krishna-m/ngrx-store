@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { getLoading } from './store/shared.selector';
+import { getLoading, getErrorMessage } from './store/shared.selector';
 import { AppState } from './store/app.state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -12,10 +12,12 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit {
   title = 'ngrx-store';
   showLoading$!: Observable<any>;
+  errorMsg$!: Observable<string>
   constructor(private store: Store<AppState>) {}
 
 
 ngOnInit() {
   this.showLoading$ = this.store.select(getLoading);
+  this.errorMsg$ = this.store.select(getErrorMessage)
 }
 }
