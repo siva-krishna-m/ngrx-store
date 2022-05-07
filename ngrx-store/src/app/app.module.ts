@@ -1,3 +1,5 @@
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { AddPostComponent } from './posts/add-post/add-post.component';
 import { environment } from './../environments/environment';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -12,7 +14,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { postsReducer } from './posts/state/posts.reducer';
@@ -27,7 +29,9 @@ import { appReducer } from './store/app.state';
     CustomCounterInputComponent,
     HomeComponent,
     HeaderComponent,
-    PostsListComponent
+    PostsListComponent,
+    AddPostComponent,
+    EditPostComponent
    ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { appReducer } from './store/app.state';
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
