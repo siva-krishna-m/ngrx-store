@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="my-3" *ngIf="counter$ | async as counter">
-      <app-counter-output [counter]="counter.counter"></app-counter-output>
-      <h3>{{ counter.name }}</h3>
+    <div class="my-3">
+      <app-counter-output [counter]="counter$ | async"></app-counter-output>
+      <h3>{{ name$ | async }}</h3>
     </div>
 
     <div class="my-3">

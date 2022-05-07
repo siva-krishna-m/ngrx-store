@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CounterOutputComponent implements OnInit {
 
-  @Input() counter!: number;
+  @Input() counter!: number | null;
 
   constructor() { }
 
