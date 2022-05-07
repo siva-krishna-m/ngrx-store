@@ -1,3 +1,5 @@
+import { setLoadingSpinner } from './../../store/shared.actions';
+import { getLoading } from './../../store/shared.selector';
 import { loginStart } from './../state/auth.actions';
 import { AppState } from './../../store/app.state';
 import { Store } from '@ngrx/store';
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.store.dispatch(setLoadingSpinner({status: true}));
     this.store.dispatch(loginStart(this.loginForm.value))
   }
 

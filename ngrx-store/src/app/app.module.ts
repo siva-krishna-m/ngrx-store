@@ -1,3 +1,5 @@
+import { appReducer } from './store/app.state';
+import { LoaderComponent } from './shared/loader/loader.component';
 import { AuthModule } from './auth/auth.module';
 import { CounterModule } from './counter/counter.module';
 import { environment } from './../environments/environment';
@@ -18,12 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoaderComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     }),
