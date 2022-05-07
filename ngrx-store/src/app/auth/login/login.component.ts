@@ -1,3 +1,6 @@
+import { loginStart } from './../state/auth.actions';
+import { AppState } from './../../store/app.state';
+import { Store } from '@ngrx/store';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
-  constructor() {
+  constructor(private store: Store<AppState>) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
@@ -20,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    this.store.dispatch(loginStart(this.loginForm.value))
   }
 
 }
