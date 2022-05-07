@@ -1,4 +1,9 @@
+import { getPosts } from './../state/posts.selector';
+import { Observable } from 'rxjs';
+import { AppState } from './../../store/app.state';
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../state/posts.state';
 
 @Component({
   selector: 'app-posts-list',
@@ -7,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsListComponent implements OnInit {
 
-  constructor() { }
+  posts$!: Observable<Post[]>
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.posts$ = this.store.select(getPosts);
   }
 
 }
