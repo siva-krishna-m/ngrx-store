@@ -1,4 +1,4 @@
-import { customIncrement } from './../state/counter.actions';
+import { changeName, customIncrement } from './../state/counter.actions';
 import { counterState } from './../state/counter.state';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class CustomCounterInputComponent implements OnInit {
 
   value!: number;
+  name!: string;
+
   constructor(private store: Store<{counter: counterState}>) { }
 
   ngOnInit() {
@@ -18,6 +20,10 @@ export class CustomCounterInputComponent implements OnInit {
 
   addValue() {
     this.store.dispatch(customIncrement({value: this.value}));
+  }
+
+  changeName() {
+    this.store.dispatch(changeName({ name: this.name }));
   }
 
 }
